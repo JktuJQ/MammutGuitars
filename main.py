@@ -1,9 +1,15 @@
 # Imports
 import sys
 import typing as t
+
 from dotenv import load_dotenv
+from data.db_sesions import full_init, dbs
+from data.models import load_models
+
 
 load_dotenv()
+full_init(dbs)
+load_models()
 
 
 # noinspection PyUnresolvedReferences
