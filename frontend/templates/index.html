@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
 
     <title>MAMMUT Guitars</title>
     <meta name="description" content="MAMMUT Guitars is an online multipage guitar blog/shop">
@@ -25,7 +27,17 @@
         </div>
     </nav>
 
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <div class="info">
+        <div class="description">
+            <h1>Hello, I'm Oleg</h1>
+            <h1 class="accent">Guitar player, maker and enjoyer!</h1>
+            <p>
+                This is a blog in which I write about guitars that I like,
+                and where I post some videos of me playing them.
+            </p>
+        </div>
+        <img src="{{ url_for('static', filename='assets/profile_picture.jpg') }}">
+    </div>
 
 </body>
 
