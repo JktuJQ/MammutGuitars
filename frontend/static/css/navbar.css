@@ -1,0 +1,42 @@
+nav {
+    padding: 20px 148px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #FFFFFF;
+    font-weight: 600;
+}
+
+nav .logo {
+    gap: 20px;
+
+    display: flex;
+    align-items: center;
+
+    color: #404040;
+    font-size: 20px;
+    font-weight: bold;
+}
+nav .logo img {
+    width: 100px;
+    height: 92px;
+}
+
+nav .navigation {
+    gap: 20px;
+
+    display: flex;
+
+    font-size: 18px;
+}
+
+nav .navigation a {
+    transition: color 0.3s ease;
+}
+
+nav .navigation a:hover,
+nav .navigation a.selected {
+    color: #DE8321;
+}
