@@ -1,11 +1,17 @@
 # Imports
 import sys
 import typing as t
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-# Main
+# noinspection PyUnresolvedReferences
 def main(argc: int, argv: t.List[str]):
-    pass
+    """ Program's entry point."""
+    from backend.application import run
+    from backend.routes import index
+    run()
 
 
 if __name__ == '__main__':
