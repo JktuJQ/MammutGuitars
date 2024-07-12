@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/recent.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/featured.css') }}">
     <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
 
     <title>MAMMUT Guitars</title>
@@ -20,7 +21,7 @@
 <body>
 
     <nav>
-        <a class="logo" href="/"><img src="{{ url_for('static', filename='assets/logo.png') }}">MAMMUT Guitars</a>
+        <a class="logo" href="/"><img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo">MAMMUT Guitars</a>
         <div class="navigation">
             <a class="selected" href="/">Home</a>
             <a href="/guitars">Guitars</a>
@@ -37,7 +38,7 @@
                 and where I post some videos of me playing them.
             </p>
         </div>
-        <img src="{{ url_for('static', filename='assets/profile_picture.jpg') }}">
+        <img src="{{ url_for('static', filename='assets/profile_picture.jpg') }}" alt="Profile picture">
     </div>
 
     <div class="recent">
@@ -53,6 +54,31 @@
             {% endfor %}
         </div>
     </div>
+
+    <div class="featured">
+        <div class="header"><h4><a href="/guitars">Featured Works</a></h4></div>
+        <div class="guitars">
+            {% for guitar in data['featured'] %}
+                <div class="guitar">
+                    <img src="{{ url_for('static', filename=guitar['icon']) }}" alt="{{ guitar['title'] }}">
+                    <div class="description">
+                        <h3><a href="/guitars/{{ guitar['id'] }}">{{ guitar['title'] }}</a></h3>
+                        <div class="years">{{ guitar['years'] }}</div>
+                        <div class="info">
+                            {% for stat_name, stat in guitar['stats'].items() %}
+                                <div class="stat">
+                                    <strong>{{ stat_name }}:</strong>
+                                    {{ stat if stat_name != "Pickups" else ' + '.join(stat) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <p>{{ guitar['info'] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
 </body>
 
 </html>
