@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recent.css') }}">
     <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
 
     <title>MAMMUT Guitars</title>
@@ -39,6 +40,19 @@
         <img src="{{ url_for('static', filename='assets/profile_picture.jpg') }}">
     </div>
 
+    <div class="recent">
+        <div class="header">
+            <h4><a href="https://www.youtube.com/channel/UCNW8LgJ3hAJvfXnWZWKjrMQ">Recent videos</a></h4>
+        </div>
+        <div class="videos">
+            {% for video in data['recent'] %}
+                <div class="video">
+                    <h3><a href="{{ video['link'] }}">{{ video['title'] }}</a></h3>
+                    <iframe src="{{ video['link'].replace('watch?v=', 'embed/') }}"></iframe>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
 </html>
