@@ -1,0 +1,26 @@
+footer {
+    padding: 40px 50px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #FFFFFF;
+    font-weight: 600;
+
+    border-top: 5px solid #DE8321;
+    border-radius: 50px;
+}
+
+footer .social-links a {
+    margin-left: 40px;
+    margin-right: 40px;
+
+    font-size: 40px;
+
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color: #DE8321;
+}
