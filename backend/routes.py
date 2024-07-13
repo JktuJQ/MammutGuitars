@@ -18,3 +18,12 @@ def index():
     data["featured"] = [parse_guitar(12), parse_guitar(13), parse_guitar(18)]
 
     return render_template("index.html", data=data)
+
+
+@application.route('/guitars', methods=["GET"])
+def guitars():
+    """Website page with all guitars."""
+
+    data = dict()
+
+    return render_template("guitars.html", data=data)
