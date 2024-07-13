@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
 
     <title>MAMMUT Guitars</title>
     <meta name="description" content="MAMMUT Guitars is an online multipage guitar blog/shop">
@@ -14,6 +15,15 @@
 </head>
 
 <body>
+
+    <nav>
+        <a class="logo" href="/"><img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo">MAMMUT Guitars</a>
+        <div class="navigation">
+          <a href="/">Home</a>
+          <a class="selected" href="/guitars">Guitars</a>
+          <a href="/about">About me</a>
+      </div>
+    </nav>
 
 </body>
 
