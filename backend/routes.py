@@ -2,6 +2,9 @@
 from backend.application import application
 from backend.guitar_parsing import parse_guitar
 
+from data.db_sesions import main_session
+from data.models import *
+
 from flask import render_template
 import pytube
 
@@ -25,5 +28,7 @@ def guitars():
     """Website page with all guitars."""
 
     data = dict()
+
+    data["guitars"] = list(map(lambda x: parse_guitar(x), main_session.query(Guitar).order_by(Guitar.id).all()))
 
     return render_template("guitars.html", data=data)

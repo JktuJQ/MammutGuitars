@@ -3,11 +3,12 @@ from data.db_sesions import main_session
 from data.models import *
 
 
-def parse_guitar(guitar_id: int) -> dict:
-    """Gathers all data about guitar that matches given `guitar_id`."""
+def parse_guitar(guitar: Guitar | int) -> dict:
+    """Gathers all data about guitar that matches given `guitar`."""
     result = dict()
 
-    guitar = main_session.query(Guitar).filter(Guitar.id == guitar_id).first()
+    if isinstance(guitar, int):
+        guitar = main_session.query(Guitar).filter(Guitar.id == guitar).first()
     result["id"] = guitar.id
     result["title"] = f"Guitar №{guitar.id}"
     result["years"] = guitar.years
@@ -26,7 +27,7 @@ def parse_guitar(guitar_id: int) -> dict:
     images_folder = "assets/guitars/"
     images = list(map(
         lambda x: images_folder + x.image_filename,
-        main_session.query(Image).filter(Image.guitar_id == guitar_id).order_by(Image.is_icon.desc()).all()
+        main_session.query(Image).filter(Image.guitar_id == guitar.id).order_by(Image.is_icon.desc()).all()
     ))
 
     result["icon"] = images[0]

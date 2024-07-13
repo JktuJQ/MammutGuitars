@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all_guitars.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 
     <title>MAMMUT Guitars</title>
@@ -26,6 +27,30 @@
           <a href="/about">About me</a>
       </div>
     </nav>
+
+    <div class="all-guitars">
+        <div class="header"><h4><a href="/guitars">All Works</a></h4></div>
+        <div class="guitars">
+            {% for guitar in data['guitars'] %}
+                <div class="guitar">
+                    <img src="{{ url_for('static', filename=guitar['icon']) }}" alt="{{ guitar['title'] }}">
+                    <div class="description">
+                        <h3><a href="/guitars/{{ guitar['id'] }}">{{ guitar['title'] }}</a></h3>
+                        <div class="years">{{ guitar['years'] }}</div>
+                        <div class="info">
+                            {% for stat_name, stat in guitar['stats'].items() %}
+                                <div class="stat">
+                                    <strong>{{ stat_name }}:</strong>
+                                    {{ stat if stat_name != "Pickups" else ' + '.join(stat) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <p>{{ guitar['info'] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
     <footer>
         <div class="social-links">
