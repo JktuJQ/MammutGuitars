@@ -26,13 +26,14 @@
     width: 290px;
     height: 888px;
     margin-bottom: 30px;
-    padding-bottom: 30px;
 
+    border: 2px solid #A0A0A0;
     border-radius: 50px;
 }
 
 .all-guitars .guitars .guitar .description {
     padding: 20px;
+    height: 888px;
 
     display: flex;
     flex-direction: column;
@@ -62,6 +63,13 @@
     font-weight: bold;
 
     border-radius: 16px;
+}
+.all-guitars .guitars .guitar .description p {
+    margin-top: 30px;
+
+    text-align: justify;
+
+    font-size: 20px;
 }
 .all-guitars .guitars .guitar .description a:hover {
     color: #DE8321;

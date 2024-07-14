@@ -26,13 +26,13 @@
     width: 290px;
     height: 888px;
     margin-bottom: 30px;
-    padding-bottom: 30px;
 
     border-radius: 50px;
 }
 
 .featured .guitars .guitar .description {
     padding: 20px;
+    height: 888px;
 
     display: flex;
     flex-direction: column;
