@@ -6,12 +6,36 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+
     <title>MAMMUT Guitars</title>
     <meta name="description" content="MAMMUT Guitars is an online multipage guitar blog/shop">
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
 </head>
 
 <body>
+
+    <nav>
+        <a class="logo" href="/"><img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo">MAMMUT Guitars</a>
+        <div class="navigation">
+            <a href="/">Home</a>
+            <a href="/guitars">Guitars</a>
+            <a href="/about">About me</a>
+        </div>
+    </nav>
+
+    <p>There is no such guitar with that id. Yet...</p>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/JktuJQ"><i class="fa fa-github"></i>&nbsp;Github</a>
+            <a href="https://www.youtube.com/channel/UCNW8LgJ3hAJvfXnWZWKjrMQ">Youtube&nbsp;<i class="fa fa-youtube-play" style="color:#FF0000"></i></a>
+        </div>
+    </footer>
 
 </body>
 

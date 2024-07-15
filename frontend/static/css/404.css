@@ -1,0 +1,16 @@
+p {
+    margin-top: 20%;
+
+    text-align: center;
+
+    color: #DE8321;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+}
