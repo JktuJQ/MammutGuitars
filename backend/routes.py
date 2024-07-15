@@ -10,7 +10,7 @@ import pytube
 
 
 @application.route('/', methods=["GET"])
-def index():
+def index() -> str:
     """Website index page"""
 
     data = dict()
@@ -24,7 +24,7 @@ def index():
 
 
 @application.route('/guitars', methods=["GET"])
-def guitars():
+def guitars() -> str:
     """Website page with all guitars."""
 
     data = dict()
@@ -32,3 +32,12 @@ def guitars():
     data["guitars"] = list(map(lambda x: parse_guitar(x), main_session.query(Guitar).order_by(Guitar.id).all()))
 
     return render_template("guitars.html", data=data)
+
+
+@application.route('/guitars/<int:guitar_id>', methods=["GET"])
+def guitar(guitar_id: int) -> str:
+    """Website page with single chosen guitar"""
+
+    return render_template("guitar.html", data=parse_guitar(guitar_id)) \
+        if 1 <= guitar_id <= main_session.query(Guitar).order_by(Guitar.id.desc()).first().id \
+        else render_template("404.html", data={"id": guitar_id})
