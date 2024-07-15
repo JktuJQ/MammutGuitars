@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/guitar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 
     <title>MAMMUT Guitars</title>
@@ -26,6 +27,31 @@
             <a href="/about">About me</a>
         </div>
     </nav>
+
+    <div class="guitar">
+
+            <h3><a href="/guitars/{{ data['id'] }}">{{ data['title'] }}</a></h3>
+            <div class="years">{{ data['years'] }}</div>
+            <img src="{{ url_for('static', filename=data['icon']) }}" alt="{{ data['title'] }}">
+        <div class="description">
+            <div class="info">
+                {% for stat_name, stat in data['stats'].items() %}
+                <div class="stat">
+                    <strong>{{ stat_name }}:</strong>
+                    {{ stat if stat_name != "Pickups" else ' + '.join(stat) }}
+                </div>
+                {% endfor %}
+            </div>
+            <p>{{ data['info'] }}</p>
+        </div>
+
+        <div class="header"><h4>All Images</h4></div>
+        <div class="images">
+            {% for image in data['images'] %}
+                <img src="{{ url_for('static', filename=image) }}" alt="Image">
+            {% endfor %}
+        </div>
+    </div>
 
     <footer>
         <div class="social-links">
