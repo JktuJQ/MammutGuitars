@@ -14,8 +14,7 @@ def index() -> str:
     """Website index page"""
 
     data = dict()
-    # channel = pytube.Channel("https://www.youtube.com/channel/UCNW8LgJ3hAJvfXnWZWKjrMQ")
-    channel = pytube.Channel("https://www.youtube.com/c/ProgrammingKnowledge")
+    channel = pytube.Channel("https://www.youtube.com/channel/UCNW8LgJ3hAJvfXnWZWKjrMQ")
     videos, links = channel.videos[:3], channel.video_urls[:3]
     data["recent"] = [{"title": video.title, "link": link} for video, link in zip(videos, links)]
     data["featured"] = [parse_guitar(12), parse_guitar(13), parse_guitar(18)]
@@ -41,3 +40,10 @@ def guitar(guitar_id: int) -> str:
     return render_template("guitar.html", data=parse_guitar(guitar_id)) \
         if 1 <= guitar_id <= main_session.query(Guitar).order_by(Guitar.id.desc()).first().id \
         else render_template("404.html", data={"id": guitar_id})
+
+
+@application.route('/about', methods=["GET"])
+def about() -> str:
+    """Website page with info about me."""
+
+    return render_template("about.html")

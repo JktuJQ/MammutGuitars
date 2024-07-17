@@ -16,7 +16,7 @@ load_models()
 def main(argc: int, argv: t.List[str]):
     """ Program's entry point."""
     from backend.application import run
-    from backend.routes import index, guitars
+    from backend.routes import index, guitars, guitar, about
     run()
 
 

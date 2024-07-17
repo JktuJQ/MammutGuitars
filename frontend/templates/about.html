@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+
+    <title>MAMMUT Guitars</title>
+    <meta name="description" content="MAMMUT Guitars is an online multipage guitar blog/shop">
+    <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a class="logo" href="/"><img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo">MAMMUT Guitars</a>
+        <div class="navigation">
+            <a href="/">Home</a>
+            <a href="/guitars">Guitars</a>
+            <a class="selected" href="/about">About me</a>
+        </div>
+    </nav>
+
+    <h1 class="header">About</h1>
+    <div class="about">
+        <img src="{{ url_for('static', filename='assets/profile_picture.jpg') }}" alt="Profile picture">
+        <div class="info">
+            <h2>I'm Oleg Mamontov</h2>
+            <p>
+                I'm a fellow guitarist, that not only loves to play them, but also to make them.
+                You can view my whole collection in this website and if you really want to see them in action -
+                you can check out my YouTube channel!
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/JktuJQ"><i class="fa fa-github"></i>&nbsp;Github</a>
+            <a href="https://www.youtube.com/channel/UCNW8LgJ3hAJvfXnWZWKjrMQ">Youtube&nbsp;<i class="fa fa-youtube-play" style="color:#FF0000"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+.header {
+    margin: auto;
+    padding: 100px;
+
+    text-align: center;
+    font-size: 50px;
+}
+
+.about {
+    margin: auto;
+
+    background-color: #DBEDF2;
+    padding: 70px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 970px;
+    border-radius: 20px;
+}
+
+.about img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.about .info h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.about .info p {
+    font-size: 25px;
+    text-align: justify;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+}
